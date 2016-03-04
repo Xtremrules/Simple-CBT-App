@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,8 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstracts\AuditableEntity.cs" />
+    <Compile Include="Abstracts\BaseEntity.cs" />
+    <Compile Include="Abstracts\Entity.cs" />
+    <Compile Include="Abstracts\IAuditableEntity.cs" />
+    <Compile Include="Abstracts\IEntity.cs" />
+    <Compile Include="Abstracts\INamedAuditableEntity.cs" />
+    <Compile Include="Abstracts\NamedAuditableEntity.cs" />
+    <Compile Include="Batch.cs" />
+    <Compile Include="Option.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Question.cs" />
+    <Compile Include="Setting.cs" />
+    <Compile Include="SQuestion.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
