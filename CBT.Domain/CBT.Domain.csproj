@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,7 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstracts\AuditableEntity.cs" />
+    <Compile Include="Abstracts\BaseEntity.cs" />
+    <Compile Include="Abstracts\Entity.cs" />
+    <Compile Include="Abstracts\IAuditableEntity.cs" />
+    <Compile Include="Abstracts\IEntity.cs" />
+    <Compile Include="Abstracts\INamedAuditableEntity.cs" />
+    <Compile Include="Abstracts\NamedAuditableEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
