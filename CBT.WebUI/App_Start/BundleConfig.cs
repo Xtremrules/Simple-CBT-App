@@ -13,6 +13,9 @@ namespace CBT.WebUI
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/*.css"));
 
+            bundles.Add(new ScriptBundle("~/bundle/resource").Include(
+                "~/Scripts/Resources/*.js"));
+
             BundleTable.EnableOptimizations = true;
         }
     }
