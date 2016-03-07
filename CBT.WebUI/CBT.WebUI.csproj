@@ -234,6 +234,12 @@
     <Folder Include="Models\" />
     <Folder Include="Views\CBT\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CBT.Domain\CBT.Domain.csproj">
+      <Project>{ede82cba-d56b-4988-85f7-98ae0c3a803e}</Project>
+      <Name>CBT.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
