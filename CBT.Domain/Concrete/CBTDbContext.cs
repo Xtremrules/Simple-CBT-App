@@ -1,11 +1,6 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
+﻿using CBT.Domain.Entities;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
-using System.Collections.Generic;
-using CBT.Domain.Entities;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace CBT.Domain.Concrete
