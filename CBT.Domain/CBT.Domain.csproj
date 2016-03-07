@@ -115,6 +115,7 @@
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\Setting.cs" />
     <Compile Include="Entities\SQuestion.cs" />
+    <Compile Include="Identity\AppRoleManager.cs" />
     <Compile Include="Identity\AppUserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
