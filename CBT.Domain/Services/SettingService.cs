@@ -1,7 +1,6 @@
 ﻿using CBT.Domain.Abstracts.Services;
 using CBT.Domain.Concrete;
 using CBT.Domain.Entities;
-using System;
 using System.Threading.Tasks;
 
 namespace CBT.Domain.Services
@@ -12,7 +11,7 @@ namespace CBT.Domain.Services
 
         public async Task<Setting> GetByIdAsync(int Id)
         {
-            throw new NotImplementedException();
+            return await _dbset.FindAsync(Id);
         }
     }
 }

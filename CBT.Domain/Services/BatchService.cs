@@ -1,7 +1,7 @@
 ﻿using CBT.Domain.Abstracts.Services;
 using CBT.Domain.Concrete;
 using CBT.Domain.Entities;
-using System;
+using System.Data.Entity;
 using System.Threading.Tasks;
 
 namespace CBT.Domain.Services
@@ -12,12 +12,12 @@ namespace CBT.Domain.Services
 
         public async Task<Batch> GetByIdAsync(int Id)
         {
-            throw new NotImplementedException();
+            return await _dbset.FindAsync(Id);
         }
 
         public async Task<Batch> GetByUniqueNumberAsync(string UniqueNumber)
         {
-            throw new NotImplementedException();
+            return await _dbset.SingleOrDefaultAsync(x => x.UniqueNumber == UniqueNumber);
         }
     }
 }
