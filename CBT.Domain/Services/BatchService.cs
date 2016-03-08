@@ -10,11 +10,6 @@ namespace CBT.Domain.Services
     {
         BatchService(CBTDbContext context) : base(context) { }
 
-        public async Task<Batch> GetByIdAsync(int Id)
-        {
-            return await _dbset.FindAsync(Id);
-        }
-
         public async Task<Batch> GetByUniqueNumberAsync(string UniqueNumber)
         {
             return await _dbset.SingleOrDefaultAsync(x => x.UniqueNumber == UniqueNumber);

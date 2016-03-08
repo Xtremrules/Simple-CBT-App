@@ -18,6 +18,11 @@ namespace CBT.Domain.Abstracts.Services
             _dbset = _context.Set<T>();
         }
 
+        public virtual async Task<T> GetByIdAsync(int Id)
+        {
+            return await _dbset.FindAsync(Id);
+        }
+
         public virtual async Task CreateAsync(T entity)
         {
             if (entity == null) throwError();
