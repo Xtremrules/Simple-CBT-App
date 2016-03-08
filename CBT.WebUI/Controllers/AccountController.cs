@@ -1,10 +1,8 @@
 ﻿using CBT.Domain.Identity;
+using CBT.WebUI.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -25,21 +23,22 @@ namespace CBT.WebUI.Controllers
                     return RedirectToAction("Index", "CBT");
             }
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            return View(new LoginViewModel());
         }
 
-        [HttpPost]
-        public async Task<ActionResult> Login(string userName, string Password, bool rem)
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            var user = await UserManager.FindAsync(userName, Password);
+            var user = await UserManager.FindAsync(model.UserName, model.Password);
             if (user == null)
             {
                 ModelState.AddModelError("", "Username or password incorrect");
-                return View();
+                model.Password = "";
+                return View(model);
             }
             ClaimsIdentity ident = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
             AuthManager.SignOut();
-            AuthManager.SignIn(new AuthenticationProperties { IsPersistent = rem }, ident);
+            AuthManager.SignIn(new AuthenticationProperties { IsPersistent = model.IsPersistent }, ident);
             return RedirectToAction("Index", "CBT");
         }
 
