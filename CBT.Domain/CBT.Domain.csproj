@@ -123,6 +123,7 @@
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\Setting.cs" />
     <Compile Include="Entities\SQuestion.cs" />
+    <Compile Include="Extensions\EntityExtension.cs" />
     <Compile Include="Identity\AppRoleManager.cs" />
     <Compile Include="Identity\AppUserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,6 +137,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
