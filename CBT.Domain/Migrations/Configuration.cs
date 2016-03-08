@@ -31,8 +31,13 @@ namespace CBT.Domain.Migrations
                 AdminUser = userMgr.FindByName("AdminUser");
             }
 
-            if (!userMgr.IsInRole(AdminUser.Id, "AdminUser"))
-                userMgr.AddToRole(AdminUser.Id, "AdminUser");
+            if (!roleMgr.RoleExists("AdminRole"))
+            {
+                roleMgr.Create(new IdentityRole("AdminRole"));
+            }
+
+            if (!userMgr.IsInRole(AdminUser.Id, "AdminRole"))
+                userMgr.AddToRole(AdminUser.Id, "AdminRole");
         }
     }
 }
