@@ -6,5 +6,6 @@ namespace CBT.Domain.Abstracts.Services
     public interface IBatchService : IEntityService<Batch>
     {
         Task<Batch> GetByUniqueNumberAsync(string UniqueNumber);
+        Task<Batch> ReturnBatchQuestions(string UniqueNumber);
     }
 }
