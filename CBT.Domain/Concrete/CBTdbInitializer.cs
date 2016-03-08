@@ -1,4 +1,7 @@
-﻿using System.Data.Entity;
+﻿using CBT.Domain.Identity;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 using System.Diagnostics;
 
 namespace CBT.Domain.Concrete
@@ -8,6 +11,27 @@ namespace CBT.Domain.Concrete
         protected override void Seed(CBTDbContext context)
         {
             context.Database.Log = s => Debug.WriteLine(s);
+
+            AppRoleManager roleMgr = new AppRoleManager(new RoleStore<IdentityRole>(context));
+            AppUserManager userMgr = new AppUserManager(new UserStore<IdentityUser>(context));
+
+            if (!roleMgr.RoleExists("Admin"))
+                roleMgr.Create(new IdentityRole("Admin"));
+
+            var AdminUser = userMgr.FindByName("AdminUser");
+            if (AdminUser == null)
+            {
+                userMgr.Create(new IdentityUser
+                {
+                    UserName = "AdminUser",
+                    Email = "admin@cbt.com",
+                }, "AdminSecret");
+                AdminUser = userMgr.FindByName("AdminUser");
+            }
+
+            if (!userMgr.IsInRole(AdminUser.Id, "AdminUser"))
+                userMgr.AddToRole(AdminUser.Id, "AdminUser");
+
             base.Seed(context);
         }
     }
