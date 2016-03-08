@@ -15,9 +15,6 @@ namespace CBT.Domain.Concrete
             AppRoleManager roleMgr = new AppRoleManager(new RoleStore<IdentityRole>(context));
             AppUserManager userMgr = new AppUserManager(new UserStore<IdentityUser>(context));
 
-            if (!roleMgr.RoleExists("Admin"))
-                roleMgr.Create(new IdentityRole("Admin"));
-
             var AdminUser = userMgr.FindByName("AdminUser");
             if (AdminUser == null)
             {
