@@ -2,18 +2,20 @@
 using CBT.Domain.Concrete;
 using CBT.Domain.Entities;
 using System;
+using System.Threading.Tasks;
 
 namespace CBT.Domain.Services
 {
     class BatchService : EntityService<Batch>, IBatchService
     {
         BatchService(CBTDbContext context) : base(context) { }
-        public Batch GetById(int Id)
+
+        public async Task<Batch> GetByIdAsync(int Id)
         {
             throw new NotImplementedException();
         }
 
-        public Batch GetByUniqueNumber(string UniqueNumber)
+        public async Task<Batch> GetByUniqueNumberAsync(string UniqueNumber)
         {
             throw new NotImplementedException();
         }

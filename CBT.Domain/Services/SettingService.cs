@@ -2,6 +2,7 @@
 using CBT.Domain.Concrete;
 using CBT.Domain.Entities;
 using System;
+using System.Threading.Tasks;
 
 namespace CBT.Domain.Services
 {
@@ -9,7 +10,7 @@ namespace CBT.Domain.Services
     {
         SettingService(CBTDbContext context): base(context) { }
 
-        public Setting GetByID(int Id)
+        public async Task<Setting> GetByIdAsync(int Id)
         {
             throw new NotImplementedException();
         }
