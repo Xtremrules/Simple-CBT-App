@@ -2,6 +2,7 @@
 
 namespace CBT.WebUI.Controllers
 {
+    [Authorize(Roles = "AdminRole")]
     public class CBTController : Controller
     {
         // GET: CBT

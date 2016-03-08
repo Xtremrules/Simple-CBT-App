@@ -1,0 +1,15 @@
+﻿using Microsoft.Owin;
+using Owin;
+
+[assembly: OwinStartup(typeof(CBT.WebUI.Startup))]
+namespace CBT.WebUI
+{
+    public partial class Startup
+    {
+        public void Configuration(IAppBuilder app)
+        {
+            // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
+            Config(app);
+        }
+    }
+}

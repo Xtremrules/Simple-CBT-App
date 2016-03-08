@@ -32,5 +32,7 @@ namespace CBT.Domain.Concrete
             modelBuilder.Entity<IdentityUserClaim>().ToTable("UserClaims").Property(x => x.Id).HasColumnName("UserClaimId");
             modelBuilder.Entity<IdentityRole>().ToTable("Roles").Property(x => x.Id).HasColumnName("RoleName");
         }
+
+        public static CBTDbContext Create() => new CBTDbContext();
     }
 }
