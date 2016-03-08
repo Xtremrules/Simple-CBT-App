@@ -1,9 +1,10 @@
 ﻿using CBT.Domain.Entities;
+using System.Threading.Tasks;
 
 namespace CBT.Domain.Abstracts.Services
 {
     public interface IQuestionService : IEntityService<Question>
     {
-        Question GetById(int Id);
+        Task<Question> GetByIdAsync(int Id);
     }
 }

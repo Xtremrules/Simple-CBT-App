@@ -1,10 +1,11 @@
 ﻿using CBT.Domain.Entities;
+using System.Threading.Tasks;
 
 namespace CBT.Domain.Abstracts.Services
 {
     public interface IBatchService : IEntityService<Batch>
     {
-        Batch GetById(int Id);
-        Batch GetByUniqueNumber(string UniqueNumber);
+        Task<Batch> GetByIdAsync(int Id);
+        Task<Batch> GetByUniqueNumberAsync(string UniqueNumber);
     }
 }
