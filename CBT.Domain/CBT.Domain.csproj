@@ -108,6 +108,14 @@
     <Compile Include="Abstracts\IEntity.cs" />
     <Compile Include="Abstracts\INamedAuditableEntity.cs" />
     <Compile Include="Abstracts\NamedAuditableEntity.cs" />
+    <Compile Include="Abstracts\Services\EntityService.cs" />
+    <Compile Include="Abstracts\Services\IBatchService.cs" />
+    <Compile Include="Abstracts\Services\IEntityService.cs" />
+    <Compile Include="Abstracts\Services\IOptionService.cs" />
+    <Compile Include="Abstracts\Services\IQuestionService.cs" />
+    <Compile Include="Abstracts\Services\IService.cs" />
+    <Compile Include="Abstracts\Services\ISettingService.cs" />
+    <Compile Include="Abstracts\Services\ISQuestionService.cs" />
     <Compile Include="Concrete\CBTDbContext.cs" />
     <Compile Include="Concrete\CBTDbInitializer.cs" />
     <Compile Include="Entities\Batch.cs" />
