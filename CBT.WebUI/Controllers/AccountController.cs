@@ -5,6 +5,7 @@ using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -28,15 +29,17 @@ namespace CBT.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Login(string userName, string Password)
+        public async Task<ActionResult> Login(string userName, string Password, bool rem)
         {
             var user = await UserManager.FindAsync(userName, Password);
-            if(user == null)
+            if (user == null)
             {
                 ModelState.AddModelError("", "Username or password incorrect");
                 return View();
             }
-            AuthManager.SignIn(await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie));
+            ClaimsIdentity ident = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+            AuthManager.SignOut();
+            AuthManager.SignIn(new AuthenticationProperties { IsPersistent = rem }, ident);
             return RedirectToAction("Index", "CBT");
         }
 
