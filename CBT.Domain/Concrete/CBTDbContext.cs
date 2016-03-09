@@ -1,7 +1,12 @@
-﻿using CBT.Domain.Entities;
+﻿using CBT.Domain.Abstracts;
+using CBT.Domain.Entities;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace CBT.Domain.Concrete
 {
@@ -34,5 +39,40 @@ namespace CBT.Domain.Concrete
         }
 
         public static CBTDbContext Create() => new CBTDbContext();
+
+        public override Task<int> SaveChangesAsync()
+        {
+            ImplementAuditableEntity();
+            return base.SaveChangesAsync();
+        }
+
+        void ImplementAuditableEntity()
+        {
+            var modifiedEntries = ChangeTracker.Entries()
+                .Where(x => x.Entity is IAuditableEntity
+                && (x.State == EntityState.Added || x.State == EntityState.Modified));
+            foreach (var entry in modifiedEntries)
+            {
+                IAuditableEntity entity = entry.Entity as IAuditableEntity;
+                if (entity != null)
+                {
+                    string identityName = Thread.CurrentPrincipal.Identity.Name;
+                    DateTime now = DateTime.Now;
+                    if (entry.State == EntityState.Added)
+                    {
+                        entity.CreatedBy = identityName;
+                        entity.CreatedDate = now;
+                    }
+                    else
+                    {
+                        Entry(entity).Property(x => x.CreatedBy).IsModified = false;
+                        Entry(entity).Property(x => x.CreatedDate).IsModified = false;
+                    }
+
+                    entity.UpdatedBy = identityName;
+                    entity.UpdatedDate = now;
+                }
+            }
+        }
     }
 }
