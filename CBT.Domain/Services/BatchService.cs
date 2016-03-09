@@ -7,12 +7,30 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using CBT.Domain.Extensions;
+using CBT.Domain.Models;
 
 namespace CBT.Domain.Services
 {
     class BatchService : EntityService<Batch>, IBatchService
     {
         BatchService(CBTDbContext context) : base(context) { }
+
+        public IEnumerable<BatchModel> GetAllBatches()
+        {
+            var all = base.GetAll();
+            var allBatches = new List<BatchModel>();
+            all.ToList().ForEach(x => allBatches.Add(new BatchModel(x)));
+            return allBatches;
+        }
+
+        public async Task<BatchModel> GetBatchbyId(int Id)
+        {
+            var batch = await base.GetByIdAsync(Id);
+            if (batch == null)
+                throw new NullReferenceException("Batch not found");
+
+            return new BatchModel(batch);
+        }
 
         public async Task<Batch> GetByUniqueNumberAsync(string UniqueNumber)
         {
@@ -28,13 +46,13 @@ namespace CBT.Domain.Services
                 throw new NullReferenceException("Batch Not found");
 
             batch.SQuestions = new List<SQuestion>();
-            
-            using(var context = _context)
+
+            using (var context = _context)
             {
                 var squestions = await context.SQuestions.AsQueryable().Where(x => x.BatchID == batch.ID).ToListAsync();
                 if (squestions.Count == 0)
                     throw new NullReferenceException("Batch has no question");
-                for(int i = 0; i < squestions.Count; i++)
+                for (int i = 0; i < squestions.Count; i++)
                 {
                     squestions[i].Questions = new List<Question>();
                     var Setting = await context.Settings.FindAsync(squestions[i].SettingID);
