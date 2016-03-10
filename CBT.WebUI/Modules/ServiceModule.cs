@@ -7,7 +7,7 @@ namespace CBT.WebUI.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterAssemblyTypes(Assembly.Load("CTB.Domain"))
+            builder.RegisterAssemblyTypes(Assembly.Load("CBT.Domain"))
                 .Where(x => x.Name.EndsWith("Service"))
                 .AsImplementedInterfaces()
                 .InstancePerRequest();
