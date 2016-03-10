@@ -12,6 +12,8 @@ namespace CBT.WebUI
             bundles.Add(new ScriptBundle("~/bundle/resource").Include(
                 "~/Scripts/Resources/*.js"));
 
+            bundles.Add(new ScriptBundle("~/bundle/AngularJS").Include(
+                "~/Scripts/*.js"));
             //BundleTable.EnableOptimizations = true;
         }
     }
