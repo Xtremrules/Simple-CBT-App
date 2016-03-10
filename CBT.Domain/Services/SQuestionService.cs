@@ -6,6 +6,6 @@ namespace CBT.Domain.Services
 {
     class SQuestionService : EntityService<SQuestion>, ISQuestionService
     {
-        SQuestionService(CBTDbContext context) : base(context) { }
+        public SQuestionService(CBTDbContext context) : base(context) { }
     }
 }

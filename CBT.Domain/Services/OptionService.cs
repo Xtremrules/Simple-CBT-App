@@ -6,6 +6,6 @@ namespace CBT.Domain.Services
 {
     class OptionService : EntityService<Option>, IOptionService
     {
-        OptionService(CBTDbContext context): base(context) { }
+        public OptionService(CBTDbContext context): base(context) { }
     }
 }

@@ -13,7 +13,7 @@ namespace CBT.Domain.Services
 {
     class BatchService : EntityService<Batch>, IBatchService
     {
-        BatchService(CBTDbContext context) : base(context) { }
+        public BatchService(CBTDbContext context) : base(context) { }
 
         public IEnumerable<BatchModel> GetAllBatches()
         {

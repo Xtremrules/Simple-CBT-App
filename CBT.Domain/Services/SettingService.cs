@@ -6,6 +6,6 @@ namespace CBT.Domain.Services
 {
     class SettingService : EntityService<Setting>, ISettingService
     {
-        SettingService(CBTDbContext context): base(context) { }
+        public SettingService(CBTDbContext context): base(context) { }
     }
 }
