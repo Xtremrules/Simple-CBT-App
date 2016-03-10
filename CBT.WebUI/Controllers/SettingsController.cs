@@ -42,23 +42,19 @@ namespace CBT.WebUI.Controllers
         }
 
         // PUT: api/Settings/5
-        public async Task<IHttpActionResult> Put(int id, [FromBody]SettingsViewModel model)
+        public async Task<IHttpActionResult> Put(int id, [FromBody]Setting model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id == 0)
+            if (id != model.ID)
             {
                 return BadRequest();
             }
-
-            var settings = AutoMapper.Mapper.Map<Setting>(model);
-            settings.ID = id;
-            await _settingsService.UpdateAsync(settings);
-            settings = await _settingsService.GetByIdAsync(id);
-            return Ok(settings);
+            await _settingsService.UpdateAsync(model);
+            return Ok(model);
 
         }
 
