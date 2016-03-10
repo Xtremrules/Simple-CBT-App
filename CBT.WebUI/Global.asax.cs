@@ -1,12 +1,14 @@
-﻿using CBT.WebUI.Modules;
-using System;
-using Autofac;
+﻿using Autofac;
 using Autofac.Integration.WebApi;
+using CBT.Domain.Entities;
+using CBT.WebUI.Models;
+using CBT.WebUI.Modules;
+using System;
+using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using System.Web;
 
 namespace CBT.WebUI
 {
@@ -26,7 +28,13 @@ namespace CBT.WebUI
             builder.RegisterModule(new EFModule());
 
             var container = builder.Build();
-            DependencyResolver.SetResolver(new AutofacWebApiDependencyResolver(container));
+            GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+            //DependencyResolver.SetResolver(new AutofacWebApiDependencyResolver(container));
+
+            AutoMapper.Mapper.Initialize(x =>
+            {
+                x.CreateMap<SettingsViewModel, Setting>();
+            });
         }
     }
 }
