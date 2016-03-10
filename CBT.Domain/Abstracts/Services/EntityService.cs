@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CBT.Domain.Abstracts.Services
 {
-    public abstract class EntityService<T> : IEntityService<T> where T : BaseEntity
+    internal abstract class EntityService<T> : IEntityService<T> where T : BaseEntity
     {
         protected CBTDbContext _context = new CBTDbContext();
         //protected IContext _context;
