@@ -1,0 +1,30 @@
+﻿<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-show="data.empty" ng-hide="data.error || data.settings">
+    <h2 class="sub-header">All Settings</h2>
+    <p>
+        No Settings have been added yet
+    </p>
+    <p><a ng-href="#/settings/add" class="btn btn-xs btn-primary">Add New</a></p>
+</div>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-hide="data.error || data.empty" ng-show="data.settings">
+    <h2 class="sub-header">All Seetings</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Sort Questions</th>
+                    <td>Sort Options</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in data.settings">
+                    <td>{{$index++}}</td>
+                    <td>{{item.Name}}</td>
+                    <td>{{item.SortQuestion}}</td>
+                    <td>{{item.SortOptions}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

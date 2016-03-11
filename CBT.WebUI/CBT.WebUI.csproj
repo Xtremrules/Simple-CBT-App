@@ -193,6 +193,8 @@
     <Content Include="Scripts\CBTApp\app.js" />
     <Content Include="Scripts\CBTApp\View\index.html" />
     <Content Include="Scripts\CBTApp\View\rootCtrl.js" />
+    <Content Include="Scripts\CBTApp\View\settings.html" />
+    <Content Include="Scripts\CBTApp\View\settingsCtrl.js" />
     <Content Include="Scripts\Resources\angular-resource.js" />
     <Content Include="Scripts\Resources\angular-resource.min.js" />
     <Content Include="Scripts\Resources\angular-route.js" />
