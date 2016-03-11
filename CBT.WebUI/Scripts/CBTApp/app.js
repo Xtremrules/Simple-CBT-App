@@ -10,5 +10,5 @@
     .when("/questions", {
         templateUrl: "/Scripts/CBTApp/View/questions.html", controller: "questionsCtrl"
     })
-    .otherwise({ redirectTo: "/", templateUrl: "/Scripts/CBTApp/home/index.html", controller: "rootCtrl" });
+    .otherwise({ redirectTo: "/", templateUrl: "/Scripts/CBTApp/View/index.html", controller: "rootCtrl"});
 });

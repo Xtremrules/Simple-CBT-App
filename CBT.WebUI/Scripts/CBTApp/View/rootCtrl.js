@@ -3,12 +3,11 @@
     .controller("rootCtrl", function ($scope, $http, batchesUrl) {
         $scope.data = {};
         $http.get(batchesUrl).success(function (data) {
-            var d = angular.toJson(data);
-            if (d.length > 0) {
+            if (data.length <= 0) {
                 $scope.data.empty = true;
             }
             else {
-                $scope.data.batches = angular.fromJson(d);
+                $scope.data.batches = data;
                 //$scope.j = 1;
             }
         }).error(function (error) {
