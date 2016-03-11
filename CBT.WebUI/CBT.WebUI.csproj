@@ -190,12 +190,15 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Scripts\CBTApp\app.js" />
+    <Content Include="Scripts\CBTApp\home\rootCtrl.js" />
     <Content Include="Scripts\Resources\angular-resource.js" />
     <Content Include="Scripts\Resources\angular-resource.min.js" />
     <Content Include="Scripts\Resources\angular-route.js" />
     <Content Include="Scripts\Resources\angular-route.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
