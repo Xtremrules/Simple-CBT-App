@@ -27,9 +27,9 @@ namespace CBT.Domain.Services
         {
             var batch = await base.GetByIdAsync(Id);
             if (batch == null)
-                throw new NullReferenceException("Batch not found");
-
-            return new BatchModel(batch);
+                return default(BatchModel);
+            else
+                return new BatchModel(batch);
         }
 
         public async Task<Batch> GetByUniqueNumberAsync(string UniqueNumber)
