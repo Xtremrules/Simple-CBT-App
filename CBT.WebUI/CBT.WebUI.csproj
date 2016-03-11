@@ -191,6 +191,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Scripts\CBTApp\app.js" />
+    <Content Include="Scripts\CBTApp\home\index.html" />
     <Content Include="Scripts\CBTApp\home\rootCtrl.js" />
     <Content Include="Scripts\Resources\angular-resource.js" />
     <Content Include="Scripts\Resources\angular-resource.min.js" />
