@@ -13,6 +13,7 @@
                     <th>No</th>
                     <th>Unique Number</th>
                     <th>Number of Questions</th>
+                    <td>View</td>
                 </tr>
             </thead>
             <tbody>
@@ -20,6 +21,7 @@
                     <td>{{$index++}}</td>
                     <td>{{item.UniqueNumber}}</td>
                     <td>{{item.QuestionCount}}</td>
+                    <td><a class="btn btn-small" ng-href="#/batches/{{item.ID}}"</td>
                 </tr>
             </tbody>
         </table>
