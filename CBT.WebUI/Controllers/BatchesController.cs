@@ -12,10 +12,10 @@ namespace CBT.WebUI.Controllers
 {
     [Authorize(Roles = "AdminRole")]
     [RoutePrefix("api/batches")]
-    public class BatchsController : ApiController
+    public class BatchesController : ApiController
     {
         IBatchService _batchService;
-        public BatchsController(IBatchService _batchService)
+        public BatchesController(IBatchService _batchService)
         {
             this._batchService = _batchService;
         }
