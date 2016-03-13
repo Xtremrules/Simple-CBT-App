@@ -7,6 +7,7 @@
 </div>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-hide="data.error || data.empty" ng-show="data.settings">
     <h2 class="sub-header">All Seetings</h2>
+    <a ng-href="#/settings/add" class="btn btn-xs btn-primary pull-right">Add new</a>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -14,12 +15,12 @@
                     <th>No</th>
                     <th>Name</th>
                     <th>Sort Questions</th>
-                    <td>Sort Options</td>
+                    <th>Sort Options</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="item in data.settings">
-                    <td>{{$index++}}</td>
+                    <td ng-model="j">{{j + 1}}</td>
                     <td>{{item.Name}}</td>
                     <td>{{item.SortQuestion}}</td>
                     <td>{{item.SortOptions}}</td>

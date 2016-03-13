@@ -10,6 +10,7 @@
         }
         else {
             $scope.data.settings = data;
+            $scope.j = 0;
         }
     })
     .error(function (error) {

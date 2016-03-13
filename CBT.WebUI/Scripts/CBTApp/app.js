@@ -10,5 +10,8 @@
     .when("/questions", {
         templateUrl: "/Scripts/CBTApp/View/questions.html", controller: "questionsCtrl"
     })
+    .when("/settings/add", {
+        templateUrl: "Scripts/CBTApp/View/addSettings.html", controller: "addSettingsCtrl"
+    })
     .otherwise({ redirectTo: "/", templateUrl: "/Scripts/CBTApp/View/index.html", controller: "rootCtrl"});
 });
