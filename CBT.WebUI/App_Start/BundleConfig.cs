@@ -17,7 +17,7 @@ namespace CBT.WebUI
 
             bundles.Add(new ScriptBundle("~/bundle/CBTApp").Include(
                 "~/Scripts/CBTApp/app.js",
-                "~/Scripts/CBTApp/View/*.js"));
+                "~/Scripts/CBTApp/Controller/*.js"));
             //BundleTable.EnableOptimizations = true;
         }
     }
