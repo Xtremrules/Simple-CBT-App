@@ -1,11 +1,11 @@
-﻿<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-show="data.empty" ng-hide="data.error || data.settings">
+﻿<div ng-show="data.empty" ng-hide="data.error || data.settings">
     <h2 class="sub-header">All Settings</h2>
     <p>
         No Settings have been added yet
     </p>
     <p><a ng-href="#/settings/add" class="btn btn-xs btn-primary">Add New</a></p>
 </div>
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-hide="data.error || data.empty" ng-show="data.settings">
+<div ng-hide="data.error || data.empty" ng-show="data.settings">
     <h2 class="sub-header">All Seetings</h2>
     <a ng-href="#/settings/add" class="btn btn-xs btn-primary pull-right">Add new</a>
     <div class="table-responsive">
