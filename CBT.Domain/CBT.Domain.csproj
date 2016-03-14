@@ -130,6 +130,10 @@
     <Compile Include="Migrations\201603141325029_BatchNotNeeded.Designer.cs">
       <DependentUpon>201603141325029_BatchNotNeeded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603141345205_AnswerNULL.cs" />
+    <Compile Include="Migrations\201603141345205_AnswerNULL.Designer.cs">
+      <DependentUpon>201603141345205_AnswerNULL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BatchModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -146,6 +150,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201603141325029_BatchNotNeeded.resx">
       <DependentUpon>201603141325029_BatchNotNeeded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603141345205_AnswerNULL.resx">
+      <DependentUpon>201603141345205_AnswerNULL.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
