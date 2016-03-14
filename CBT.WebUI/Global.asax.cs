@@ -34,6 +34,14 @@ namespace CBT.WebUI
             AutoMapper.Mapper.Initialize(x =>
             {
                 x.CreateMap<SettingsViewModel, Setting>();
+                x.CreateMap<SQuestionViewModel, SQuestion>();
+                x.CreateMap<OtherViewModel, Question>()
+                .ForMember(c => c.Content, r => r.MapFrom(y => y.Content))
+                .ForMember(c => c.SQuestionID, r => r.MapFrom(y => y.OtherID));
+
+                x.CreateMap<OtherViewModel, Option>()
+                .ForMember(c => c.Content, r => r.MapFrom(y => y.Content))
+                .ForMember(c => c.QuestionID, r => r.MapFrom(y => y.OtherID));
             });
         }
     }
