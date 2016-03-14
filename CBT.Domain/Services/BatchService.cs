@@ -49,7 +49,8 @@ namespace CBT.Domain.Services
 
             using (var context = _context)
             {
-                var squestions = await context.SQuestions.AsQueryable().Where(x => x.BatchID == batch.ID).ToListAsync();
+                var squestions = await context.Batches.Where(x => x.UniqueNumber == UniqueNumber)
+                    .SelectMany(x => x.SQuestions).ToListAsync();
                 if (squestions.Count == 0)
                     throw new NullReferenceException("Batch has no question");
                 for (int i = 0; i < squestions.Count; i++)

@@ -9,8 +9,7 @@ namespace CBT.Domain.Entities
         public int NumberofQuestions { get; set; }
         public int SettingID { get; set; }
         public virtual Setting Setting { get; set; }
-        public int BatchID { get; set; }
-        public virtual Batch Batch { get; set; }
-        public ICollection<Question> Questions { get; set; }
+        public virtual ICollection<Batch> Batches { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
     }
 }

@@ -30,6 +30,10 @@ namespace CBT.Domain.Concrete
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
+            modelBuilder.Entity<SQuestion>().HasMany(x => x.Batches)
+                .WithMany(x => x.SQuestions)
+                .Map(x => x.MapLeftKey("SquestionID").MapRightKey("BatchID")
+                .ToTable("SQuestionBatch"));
 
             modelBuilder.Entity<IdentityUser>().ToTable("Users").Property(x => x.Id).HasColumnName("UserId");
             modelBuilder.Entity<IdentityUserRole>().ToTable("UserRoles");
