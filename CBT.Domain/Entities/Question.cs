@@ -10,7 +10,7 @@ namespace CBT.Domain.Entities
         /// <summary>
         /// This should have the id to the right option
         /// </summary>
-        public int Answer { get; set; }
+        public int? Answer { get; set; }
         public virtual SQuestion SQuestion { get; set; }
         public virtual ICollection<Option> Options { get; set; }
     }
