@@ -28,4 +28,7 @@
             $location.path("/questions");
         });
     }
+})
+.controller("EditSquestion", function ($scope, $http, $location) {
+
 });

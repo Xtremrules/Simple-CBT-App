@@ -12,6 +12,9 @@
     .when("/questions/add", {
         templateUrl: "/Scripts/CBTApp/View/addSq.html", controller: "AddSquestion"
     })
+    .when("/questions/edit/:id", {
+        templateUrl: "/Scripts/CBTApp/View.editSq.html", controller: "EditSquestion"
+    })
     .when("/settings/add", {
         templateUrl: "Scripts/CBTApp/View/addSettings.html", controller: "settingsCtrl"
     })
