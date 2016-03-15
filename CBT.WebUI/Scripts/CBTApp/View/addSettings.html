@@ -21,19 +21,37 @@
             <span class="error" ng-show="SettingsFrom.Name.$error.required">Please enter a name</span>
         </div>
 
-        <div class="form-group">
-            <span><b>Sort Questions</b></span>
-            <div class="checkbox">
-                <label><input type="checkbox" name="SortQuestion" ng-model="data.AddSettings.SortQuestion" /></label>
-            </div>
-        </div>
+        <fieldset>
+            <legend>Sort Questions</legend>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label><input type="radio" name="SortQuestion" value="true" ng-model="data.AddSettings.SortQuestion" required/>True</label><br />
+                </div>
 
-        <div class="form-group">
-            <span><b>Sort Options</b></span>
-            <div class="checkbox">
-                <label><input type="checkbox" name="SortOptions" ng-model="data.AddSettings.SortOptions" /></label>
+                <div class="checkbox">
+                    <label><input type="radio" name="SortQuestion" value="false" ng-model="data.AddSettings.SortQuestion" required/>False</label><br />
+                </div>
+                <div>
+                    <span class="error" ng-show="SettingsFrom.SortQuestion.$error.required">Please select an option</span>
+                </div>
             </div>
-        </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Sort Options</legend>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label><input type="radio" name="SortOptions" value="true" ng-model="data.AddSettings.SortOptions" required/>True</label><br />
+                </div>
+
+                <div class="checkbox">
+                    <label><input type="radio" name="SortOptions" value="false" ng-model="data.AddSettings.SortOptions" required/>False</label><br />
+                </div>
+                <div>
+                    <span class="error" ng-show="SettingsFrom.SortOptions.$error.required">Please select an option</span>
+                </div>
+            </div>
+        </fieldset>
 
         <div class="text-center">
             <button ng-disabled="SettingsFrom.$invalid" class="btn btn-primary" ng-click="Addsettings(data.AddSettings)">Complete order</button>
