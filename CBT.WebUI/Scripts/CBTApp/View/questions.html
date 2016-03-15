@@ -1,10 +1,31 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
-
-</body>
-</html>
+﻿<div ng-show="data.empty" ng-hide="data.error || data.SQuestions">
+    <h2 class="sub-header">All Questions</h2>
+    <p>
+        No Questions have been added yet
+    </p>
+    <p><a ng-href="#/questions/add" class="btn btn-xs btn-primary">Add New</a></p>
+</div>
+<div ng-hide="data.error || data.empty" ng-show="data.SQuestions">
+    <h2 class="sub-header">All Questions</h2>
+    <a ng-href="#/questions/add" class="btn btn-xs btn-primary pull-right">Add new</a>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>No. of Options</th>
+                    <th>No. of Questions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in data.SQuestions">
+                    <td ng-model="j">{{j + 1}}</td>
+                    <td>{{item.Name}}</td>
+                    <td>{{item.NumberofOptions}}</td>
+                    <td>{{item.NumberofQuestions}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
