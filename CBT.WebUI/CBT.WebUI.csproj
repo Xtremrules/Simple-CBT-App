@@ -195,6 +195,7 @@
     <Content Include="Scripts\CBTApp\Services\AppServices.js" />
     <Content Include="Scripts\CBTApp\View\addSettings.html" />
     <Content Include="Scripts\CBTApp\View\addSq.html" />
+    <Content Include="Scripts\CBTApp\View\editSq.html" />
     <Content Include="Scripts\CBTApp\View\index.html" />
     <Content Include="Scripts\CBTApp\Controller\rootCtrl.js" />
     <Content Include="Scripts\CBTApp\View\questions.html" />
