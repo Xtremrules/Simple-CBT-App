@@ -192,6 +192,7 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Scripts\CBTApp\app.js" />
     <Content Include="Scripts\CBTApp\Controller\questionsCtrl.js" />
+    <Content Include="Scripts\CBTApp\Services\AppServices.js" />
     <Content Include="Scripts\CBTApp\View\addSettings.html" />
     <Content Include="Scripts\CBTApp\View\addSq.html" />
     <Content Include="Scripts\CBTApp\View\index.html" />
