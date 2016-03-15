@@ -193,6 +193,7 @@
     <Content Include="Scripts\CBTApp\app.js" />
     <Content Include="Scripts\CBTApp\Controller\questionsCtrl.js" />
     <Content Include="Scripts\CBTApp\View\addSettings.html" />
+    <Content Include="Scripts\CBTApp\View\addSq.html" />
     <Content Include="Scripts\CBTApp\View\index.html" />
     <Content Include="Scripts\CBTApp\Controller\rootCtrl.js" />
     <Content Include="Scripts\CBTApp\View\questions.html" />

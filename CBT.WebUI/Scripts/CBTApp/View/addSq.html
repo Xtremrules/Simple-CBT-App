@@ -1,0 +1,42 @@
+﻿<style>
+    .ng-invalid {
+        background-color: lightpink;
+    }
+
+    .ng-valid {
+        background-color: lightgreen;
+    }
+
+    span.error {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+<h2>Add Question</h2>
+<form name="QuestionFrom" novalidate>
+    <div class="well">
+        <div class="form-group">
+            <label>Settings Name</label>
+            <input name="Name" class="form-control" ng-model="data.AddSettings.Name" required />
+            <span class="error" ng-show="QuestionFrom.Name.$error.required">Please enter a name</span>
+        </div>
+
+        <div class="form-group">
+            <span><b>Sort Questions</b></span>
+            <div class="checkbox">
+                <label><input type="checkbox" name="SortQuestion" ng-model="data.AddSettings.SortQuestion" /></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span><b>Sort Options</b></span>
+            <div class="checkbox">
+                <label><input type="checkbox" name="SortOptions" ng-model="data.AddSettings.SortOptions" /></label>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button ng-disabled="SettingsFrom.$invalid" class="btn btn-primary" ng-click="Addsettings(data.AddSettings)">Complete order</button>
+        </div>
+    </div>
+</form>
