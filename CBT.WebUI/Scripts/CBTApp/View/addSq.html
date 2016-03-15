@@ -16,27 +16,32 @@
 <form name="QuestionFrom" novalidate>
     <div class="well">
         <div class="form-group">
-            <label>Settings Name</label>
-            <input name="Name" class="form-control" ng-model="data.AddSettings.Name" required />
+            <label>Question Name</label>
+            <input name="Name" type="text" class="form-control" ng-model="data.AddSq.Name" required />
             <span class="error" ng-show="QuestionFrom.Name.$error.required">Please enter a name</span>
         </div>
 
         <div class="form-group">
-            <span><b>Sort Questions</b></span>
-            <div class="checkbox">
-                <label><input type="checkbox" name="SortQuestion" ng-model="data.AddSettings.SortQuestion" /></label>
-            </div>
+            <label>Number of Questions</label>
+            <input name="NumberofQuestions" type="number" class="form-control" ng-model="data.AddSq.NumberofQuestions" required />
+            <span class="error" ng-show="QuestionFrom.NumberofQuestions.$error.required">Please enter a Number</span>
         </div>
 
         <div class="form-group">
-            <span><b>Sort Options</b></span>
-            <div class="checkbox">
-                <label><input type="checkbox" name="SortOptions" ng-model="data.AddSettings.SortOptions" /></label>
-            </div>
+            <label>Number of Options</label>
+            <input name="NumberofOptions" type="number" class="form-control" ng-model="data.AddSq.NumberofOptions" required />
+            <span class="error" ng-show="QuestionFrom.NumberofOptions.$error.required">Please enter a Number</span>
+        </div>
+
+        <div class="form-group">
+            <label>Settings</label>
+            <select name="SettingsID" class="form-control" ng-model="data.AddSq.SettingID" required>
+                <option data-ng-repeat="m in data.settings" value="{{m.ID}}">{{m.Name}}</option>
+            </select>
         </div>
 
         <div class="text-center">
-            <button ng-disabled="SettingsFrom.$invalid" class="btn btn-primary" ng-click="Addsettings(data.AddSettings)">Complete order</button>
+            <button ng-disabled="QuestionFrom.$invalid" class="btn btn-primary" ng-click="AddSq(data.AddSq)">Add Question</button>
         </div>
     </div>
 </form>

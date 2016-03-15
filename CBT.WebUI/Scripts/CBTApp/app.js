@@ -10,7 +10,7 @@
         templateUrl: "/Scripts/CBTApp/View/questions.html", controller: "questionsCtrl"
     })
     .when("/questions/add", {
-        templateUrl: "/Scripts/CBTApp/View/addSq.html", controller: "questionsCtrl"
+        templateUrl: "/Scripts/CBTApp/View/addSq.html", controller: "AddSquestion"
     })
     .when("/settings/add", {
         templateUrl: "Scripts/CBTApp/View/addSettings.html", controller: "settingsCtrl"
