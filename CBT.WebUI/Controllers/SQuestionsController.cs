@@ -1,13 +1,11 @@
-﻿using System;
+﻿using AutoMapper;
+using CBT.Domain.Abstracts.Services;
+using CBT.Domain.Entities;
+using CBT.WebUI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
-using CBT.Domain.Abstracts.Services;
-using CBT.WebUI.Models;
-using AutoMapper;
-using CBT.Domain.Entities;
 using System.Web.Http;
 
 namespace CBT.WebUI.Controllers
@@ -28,9 +26,39 @@ namespace CBT.WebUI.Controllers
             this._questionService = _questionService;
             this._squestionService = _squestionService;
         }
+
         public IEnumerable<SQuestion> Get()
         {
             return _squestionService.GetAll();
+        }
+
+        [HttpPost]
+        [Route("{id:int}/questions")]
+        public async Task<IHttpActionResult> PostQuestion(int id, [FromBody]OtherViewModel model)
+        {
+            if (id != model.OtherID)
+                return BadRequest("Id Error");
+            if (ModelState.IsValid)
+            {
+                var question = Mapper.Map<Question>(model);
+                await _questionService.CreateAsync(question);
+                return Ok();
+            }
+            return BadRequest(ModelState);
+        }
+
+        [HttpPut]
+        [Route("{id:int}/questions")]
+        public async Task<IHttpActionResult> PutQuestion([FromBody]int id, [FromBody]int Answerid)
+        {
+            var question = await _questionService.GetByIdAsync(id);
+            if(question != null)
+            {
+                question.Answer = Answerid;
+                await _questionService.UpdateAsync(question);
+                return Ok();
+            }
+            throw new NullReferenceException("Question not found");
         }
 
         [HttpGet]
@@ -48,6 +76,20 @@ namespace CBT.WebUI.Controllers
             var options = _optionService.GetAll().Where(x => x.QuestionID == id).ToList();
             return Ok(options);
         }
+
+        [HttpPost]
+        [Route("{sqid:int}/questions/{id:int}/options")]
+        public async Task<IHttpActionResult> PostOptions([FromBody]OtherViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var option = Mapper.Map<Option>(model);
+                await _optionService.CreateAsync(option);
+                return Ok();
+            }
+            return BadRequest(ModelState);
+        }
+
         // GET: api/SQuestions/5
         public async Task<SQuestion> Get(int id)
         {
