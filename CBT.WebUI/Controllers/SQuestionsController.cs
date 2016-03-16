@@ -41,8 +41,8 @@ namespace CBT.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 var question = Mapper.Map<Question>(model);
-                await _questionService.CreateAsync(question);
-                return Ok();
+                question =  await _questionService.CreateAsync(question);
+                return Ok(question);
             }
             return BadRequest(ModelState);
         }
@@ -55,8 +55,8 @@ namespace CBT.WebUI.Controllers
             if(question != null)
             {
                 question.Answer = Answerid;
-                await _questionService.UpdateAsync(question);
-                return Ok();
+                question = await _questionService.UpdateAsync(question);
+                return Ok(question);
             }
             throw new NullReferenceException("Question not found");
         }
@@ -84,8 +84,8 @@ namespace CBT.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 var option = Mapper.Map<Option>(model);
-                await _optionService.CreateAsync(option);
-                return Ok();
+                option = await _optionService.CreateAsync(option);
+                return Ok(option);
             }
             return BadRequest(ModelState);
         }
@@ -102,8 +102,8 @@ namespace CBT.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 var squestion = Mapper.Map<SQuestion>(model);
-                await _squestionService.CreateAsync(squestion);
-                return Ok();
+                squestion = await _squestionService.CreateAsync(squestion);
+                return Ok(squestion);
             }
             return BadRequest(ModelState);
         }

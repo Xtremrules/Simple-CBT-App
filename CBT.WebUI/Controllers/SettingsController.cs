@@ -35,8 +35,8 @@ namespace CBT.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 var settings = AutoMapper.Mapper.Map<Setting>(model);
-                await _settingsService.CreateAsync(settings);
-                return Ok();
+                var setting =  await _settingsService.CreateAsync(settings);
+                return Ok(setting);
             }
             return BadRequest(ModelState);
         }
@@ -53,8 +53,8 @@ namespace CBT.WebUI.Controllers
             {
                 return BadRequest();
             }
-            await _settingsService.UpdateAsync(model);
-            return Ok(model);
+            var setting = await _settingsService.UpdateAsync(model);
+            return Ok(setting);
 
         }
 

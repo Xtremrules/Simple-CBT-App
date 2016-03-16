@@ -27,11 +27,12 @@ namespace CBT.Domain.Abstracts.Services
                 return entity;
         }
 
-        public virtual async Task CreateAsync(T entity)
+        public virtual async Task<T> CreateAsync(T entity)
         {
             if (entity == null) throwError();
-            _context.Entry<T>(entity).State = EntityState.Added;
+            _context.Entry(entity).State = EntityState.Added;
             await _context.SaveChangesAsync();
+            return entity;
         }
 
         public virtual async Task DeleteAsync(T entity)
@@ -41,11 +42,12 @@ namespace CBT.Domain.Abstracts.Services
             await _context.SaveChangesAsync();
         }
 
-        public virtual async Task UpdateAsync(T entity)
+        public virtual async Task<T> UpdateAsync(T entity)
         {
             if (entity == null) throwError();
-            _context.Entry<T>(entity).State = EntityState.Modified;
+            _context.Entry(entity).State = EntityState.Modified;
             await _context.SaveChangesAsync();
+            return entity;
         }
 
         public virtual IEnumerable<T> GetAll()
