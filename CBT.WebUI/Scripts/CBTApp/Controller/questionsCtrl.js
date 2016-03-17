@@ -24,8 +24,12 @@
     console.log("Settings: ", $scope.data.settings);
     $scope.AddSq = function (Sqmodel) {
         var model = angular.copy(Sqmodel);
-        $http.post(SQuestions, model).success(function () {
-            $location.path("/questions");
+        $http.post(SQuestions, model).success(function (data) {
+            $scope.data.edit = data;
+            $location.url("/questions/edit/" + data.ID);
+        }).error(function (error) {
+            console.log(error);
+
         });
     }
 })

@@ -1,10 +1,22 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
+﻿<div>
+    <h2 class="sub-header">Edit Question</h2>
+    <a ng-href="#/settings/add" class="btn btn-xs btn-primary pull-right">Add new</a>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Properties</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Name: {{data.Name}}</p>
+                    <p>No. of Question: {{data.NumberofQuestions}}</p>
+                    <p>No. of Options: {{data.NumberofOptions}}</p>
+                    <p>Settings: {{data.Setting.Name}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
 
-</body>
-</html>
+        </div>
+    </div>
+</div>
