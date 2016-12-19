@@ -59,9 +59,10 @@ namespace CBT.WebUI.Controllers
         }
 
         // DELETE: api/Settings/5
-        public void Delete(int id)
+        [HttpDelete]
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            await _settingsService.DeleteAsync(await _settingsService.GetByIdAsync(id));
         }
     }
 }

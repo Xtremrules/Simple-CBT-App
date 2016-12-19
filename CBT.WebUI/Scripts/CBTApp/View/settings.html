@@ -16,6 +16,7 @@
                     <th>Name</th>
                     <th>Sort Questions</th>
                     <th>Sort Options</th>
+                    <td>Delete</td>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +25,7 @@
                     <td>{{item.Name}}</td>
                     <td>{{item.SortQuestion}}</td>
                     <td>{{item.SortOptions}}</td>
+                    <td><button class="btn btn-sm btn-primary" ng-click="delete(item.ID)">Delete</button></td>
                 </tr>
             </tbody>
         </table>
